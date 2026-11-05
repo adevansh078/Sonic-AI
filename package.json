@@ -1,0 +1,1 @@
+{"name":"acme-collections","private":true,"workspaces":["frontend"],"scripts":{"dev":"concurrently -k -n API,WEB -c cyan,green \"node scripts/backend.mjs\" \"npm run dev -w frontend\"","dev:backend":"node scripts/backend.mjs","build":"npm run build -w frontend","test":"node scripts/backend.mjs test"},"devDependencies":{"concurrently":"^9.0.0"}}

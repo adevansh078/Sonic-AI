@@ -1,0 +1,92 @@
+[
+  {
+    "customer_id": "C001",
+    "name": "Brightline Logistics Pvt Ltd",
+    "contact_name": "Neha Kulkarni",
+    "contact_email": "customer1@example.com",
+    "phone": "+91 20 5550 0111",
+    "city": "Pune",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C002",
+    "name": "Kestrel Foods Private Limited",
+    "contact_name": "Arjun Nair",
+    "contact_email": "customer2@example.com",
+    "phone": "+91 484 555 0122",
+    "city": "Kochi",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C003",
+    "name": "Quillon Technologies Pvt Ltd",
+    "contact_name": "Farah Siddiqui",
+    "contact_email": "customer3@example.com",
+    "phone": "+91 40 5550 0133",
+    "city": "Hyderabad",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C004",
+    "name": "Saffron Peak Hospitality LLP",
+    "contact_name": "Rohan Bhatia",
+    "contact_email": "customer4@example.com",
+    "phone": "+91 141 555 0144",
+    "city": "Jaipur",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C005",
+    "name": "Orbis Packaging Ltd",
+    "contact_name": "Meera Iyer",
+    "contact_email": "customer5@example.com",
+    "phone": "+91 44 5550 0155",
+    "city": "Chennai",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C006",
+    "name": "Redwood Clinics Pvt Ltd",
+    "contact_name": "Dr. Anil Menon",
+    "contact_email": "customer6@example.com",
+    "phone": "+91 80 5550 0166",
+    "city": "Bengaluru",
+    "country": "India",
+    "currency": "INR"
+  },
+  {
+    "customer_id": "C007",
+    "name": "Harbour Analytics Inc",
+    "contact_name": "Emily Carter",
+    "contact_email": "customer7@example.com",
+    "phone": "+1 212 555 0177",
+    "city": "New York",
+    "country": "United States",
+    "currency": "USD"
+  },
+  {
+    "customer_id": "C008",
+    "name": "Nordlys Retail GmbH",
+    "contact_name": "Lena Vogel",
+    "contact_email": "customer8@example.com",
+    "phone": "+49 30 5550 0188",
+    "city": "Berlin",
+    "country": "Germany",
+    "currency": "EUR"
+  },
+  {
+    "customer_id": "C009",
+    "name": "Thornfield Media Ltd",
+    "contact_name": "James Whitmore",
+    "contact_email": "customer9@example.com",
+    "phone": "+44 20 5550 0199",
+    "city": "London",
+    "country": "United Kingdom",
+    "currency": "GBP"
+  }
+]

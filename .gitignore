@@ -1,0 +1,22 @@
+node_modules/
+.npm-cache/
+dist/
+.env
+backend/storage/
+backend/.venv/
+__pycache__/
+*.pyc
+debug/
+
+# Local verification and editor artifacts
+.setup-check/
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+Thumbs.db
+
+# PDF authoring intermediates
+tmp/pdfs/
+
+/Sonic-AI/

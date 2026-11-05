@@ -1,0 +1,226 @@
+[
+  {
+    "transaction": {
+      "txn_date": "2026-09-05",
+      "narration": "IMPS/KESTREL FOODS/INV 1004",
+      "reference": "624811204417",
+      "credit": 59000,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "e81b935c51f9ef0bcde3",
+    "suggestion": {
+      "invoice": "INV-1004",
+      "score": 99,
+      "reason": "Invoice reference found; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-09-10",
+      "narration": "UPI/ORBIS PKG/PART PAYMENT",
+      "reference": "625314770213",
+      "credit": 200000,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "b3316f2a7d72777896b6",
+    "suggestion": {
+      "invoice": null,
+      "score": 28,
+      "reason": "Insufficient evidence; review manually"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-09-21",
+      "narration": "RTGS CR-QUILLON TECH PVT LTD",
+      "reference": "R26426009914",
+      "credit": 324000,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "99552a11521e55027c8c",
+    "suggestion": {
+      "invoice": "INV-1007",
+      "score": 43,
+      "reason": "Payer name similarity; possible 10% TDS"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-09-25",
+      "narration": "SEPA CR NORDLYS RETAIL GMBH RE 1024",
+      "reference": "SEPA2609250031",
+      "credit": 9200,
+      "debit": 0,
+      "currency": "EUR"
+    },
+    "id": "d5ea9fc1b60dbc76f63e",
+    "suggestion": {
+      "invoice": "INV-1024",
+      "score": 70,
+      "reason": "Payer name similarity; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-09-28",
+      "narration": "SWIFT CR HARBOUR ANALYTICS INC INV1021",
+      "reference": "SW2609281142",
+      "credit": 12500,
+      "debit": 0,
+      "currency": "USD"
+    },
+    "id": "b0db760eb47676fb697a",
+    "suggestion": {
+      "invoice": "INV-1021",
+      "score": 99,
+      "reason": "Invoice reference found; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-09-30",
+      "narration": "NEFT CR-BRIGHTLINE LOGISTICS PVT LTD-INV-1002",
+      "reference": "N273260011842",
+      "credit": 236000,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "e10e17b0894e83f604c9",
+    "suggestion": {
+      "invoice": "INV-1002",
+      "score": 99,
+      "reason": "Invoice reference found; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-02",
+      "narration": "NEFT CR-REDWOOD CLINIC",
+      "reference": "N275260001365",
+      "credit": 59000,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "0b3a9f2636a433be5e47",
+    "suggestion": {
+      "invoice": "INV-1016",
+      "score": 48,
+      "reason": "Payer name similarity; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-05",
+      "narration": "NEFT DR-OFFICE RENT OCT",
+      "reference": "N278260004471",
+      "credit": 0,
+      "debit": 185000,
+      "currency": "INR"
+    },
+    "id": "1b713ee5c3b26e56c342",
+    "suggestion": {
+      "score": 0,
+      "reason": "Outgoing transaction; not a customer receipt",
+      "invoice": null
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-08",
+      "narration": "SWIFT CR THORNFIELD MEDIA LTD",
+      "reference": "SW2610080907",
+      "credit": 7350.5,
+      "debit": 0,
+      "currency": "GBP"
+    },
+    "id": "8636fd50d17b3792a134",
+    "suggestion": {
+      "invoice": "INV-1026",
+      "score": 70,
+      "reason": "Payer name similarity; exact balance"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-12",
+      "narration": "NEFT CR-SAFFRON PEAK HOSP-OCT DUES",
+      "reference": "N285260007120",
+      "credit": 194700,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "b46de7c7fbd50dbbe744",
+    "suggestion": {
+      "invoice": null,
+      "score": 28,
+      "reason": "Insufficient evidence; review manually"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-15",
+      "narration": "SWIFT DR SOFTWARE VENDOR",
+      "reference": "SW2610150412",
+      "credit": 0,
+      "debit": 1450,
+      "currency": "USD"
+    },
+    "id": "4013c183e88f04f481c0",
+    "suggestion": {
+      "score": 0,
+      "reason": "Outgoing transaction; not a customer receipt",
+      "invoice": null
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-20",
+      "narration": "IMPS/R K SHARMA/CLINIC DUES",
+      "reference": "629315881020",
+      "credit": 88500,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "cf06571b511f8322c334",
+    "suggestion": {
+      "invoice": null,
+      "score": 25,
+      "reason": "Insufficient evidence; review manually"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-24",
+      "narration": "NEFT CR-MAPLE RETAIL SERVICES",
+      "reference": "N297260006677",
+      "credit": 12750,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "23c8530e28d0772c632c",
+    "suggestion": {
+      "invoice": null,
+      "score": 5,
+      "reason": "Insufficient evidence; review manually"
+    }
+  },
+  {
+    "transaction": {
+      "txn_date": "2026-10-31",
+      "narration": "INT.PD:01-10-2026 TO 31-10-2026",
+      "reference": "",
+      "credit": 431.22,
+      "debit": 0,
+      "currency": "INR"
+    },
+    "id": "d582bea18be00b1c3c66",
+    "suggestion": {
+      "invoice": null,
+      "score": 5,
+      "reason": "Insufficient evidence; review manually"
+    }
+  }
+]

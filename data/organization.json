@@ -1,0 +1,37 @@
+{
+  "name": "AcmeCorp",
+  "address": "4th Floor, 18 Residency Road, Bengaluru, Karnataka 560025, India",
+  "accounts_contact_name": "Accounts Team",
+  "accounts_email": "replace-with-your-organization-test-inbox@example.com",
+  "phone": "+91 80 5550 0142",
+  "default_currency": "INR",
+  "accepted_currencies": [
+    "INR",
+    "USD",
+    "EUR",
+    "GBP"
+  ],
+  "payment_terms": "Invoices are payable by the due date printed on the invoice.",
+  "payment_methods": [
+    "NEFT",
+    "RTGS",
+    "IMPS",
+    "UPI",
+    "SWIFT",
+    "SEPA"
+  ],
+  "bank_details": {
+    "account_name": "AcmeCorp",
+    "account_number": "000111222333",
+    "bank": "Example Bank, MG Road Branch",
+    "ifsc": "EXMP0000142",
+    "swift_code": "EXMPINBBXXX"
+  },
+  "policies": {
+    "tds": "Customers in India may deduct TDS at 10% of the invoice subtotal and must share the TDS certificate with the Accounts Team.",
+    "bank_charges": "International customers must cover their own bank charges in full.",
+    "extensions": "Only the Accounts Team can agree to a later payment date or an instalment plan.",
+    "disputes": "Disputed invoices are reviewed by the Accounts Team within 3 working days.",
+    "working_hours": "Monday to Friday, 10:00 to 18:00 IST"
+  }
+}
