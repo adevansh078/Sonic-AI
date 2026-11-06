@@ -20,15 +20,68 @@ The application connects two workflows through the same invoice records: **colle
 
 ### Architecture and stack
 
-```text
-React 19 / Vite 6 frontend
-        | HTTP JSON requests (/api, proxied by Vite)
-Python / FastAPI API routes
-        | business logic: collections agent + reconciliation + approvals
-        +-- store.py --------> TinyDB JSON / optional MongoDB (PyMongo)
-        +-- mail adapters ---> Gmail SMTP + IMAP
-        +-- llm.py / HTTPX ---> Gemini / optional Groq fallback
+The diagram below renders directly on GitHub. The backend boundary contains Python modules running in a single process; the database and external providers sit outside that boundary.
+
+```mermaid
+flowchart TB
+    USER["User / Accounts Team"]
+    subgraph CLIENT["Frontend - React 19 / Vite 6"]
+        UI["Organization · Customers · Invoices<br/>Collections · Bank reconciliation"]
+    end
+    subgraph BACKEND["Backend - Python / FastAPI / Uvicorn"]
+        API["API routes - main.py<br/>Request validation and orchestration"]
+        AGENT["Collections agent - agent.py<br/>Polling, customer context, decisions and review"]
+        REM["Reminder workflow - reminders.py<br/>Invoice selection, preview and send validation"]
+        MATCH["Local matching - matching.py<br/>Payer, references, currency, dates and amounts"]
+        APPROVE["Approval - logic.py / allocations.py<br/>Combined allocations and balance updates"]
+        EXCEPT["availability.py / bounces.py<br/>Reminder pauses and delivery reports"]
+        STORE["Database access - store.py<br/>Locked, validated workspace mutations"]
+        MAIL["Mail transport<br/>IMAP retrieval / SMTP delivery"]
+        LLM["LLM adapter - llm.py / HTTPX<br/>Structured output and validation"]
+    end
+    DB[("NoSQL workspace<br/>TinyDB default OR MongoDB")]
+    GMAIL["Gmail server<br/>Company mailbox / payer test inbox"]
+    GEMINI["Gemini API - primary"]
+    GROQ["Groq API - optional transient-failure fallback"]
+    SEED["Supplied data files<br/>Organization, customers and invoices"]
+
+    USER --> UI
+    UI <-->|"HTTP / JSON through /api"| API
+    API --> AGENT
+    API --> REM
+    API --> MATCH
+    API -->|"Explicit human approval"| APPROVE
+    AGENT --> EXCEPT
+    AGENT <--> LLM
+    AGENT <--> MAIL
+    REM --> MAIL
+    REM --> STORE
+    AGENT --> STORE
+    MATCH -->|"Read eligible invoices"| STORE
+    APPROVE -->|"Record cash / TDS and update balances"| STORE
+    STORE <--> DB
+    SEED -->|"First-start seeding"| STORE
+    MAIL <--> GMAIL
+    LLM --> GEMINI
+    LLM -.-> GROQ
+
+    classDef client fill:#e8f4fb,stroke:#32789b,color:#153847;
+    classDef logic fill:#edf7f5,stroke:#25877c,color:#153847;
+    classDef external fill:#fff5e6,stroke:#b88935,color:#503c18;
+    class UI client;
+    class API,AGENT,REM,MATCH,APPROVE,EXCEPT,STORE,MAIL,LLM logic;
+    class DB,GMAIL,GEMINI,GROQ,SEED external;
 ```
+
+### How data moves through the system
+
+1. **Reminders:** the frontend requests a preview for selected invoices. The backend reads current balances, checks recipient restrictions and reminder pauses, and sends through SMTP only after the user confirms.
+2. **Incoming email:** manual checks or the polling worker retrieve new IMAP messages. The agent associates the customer/thread, handles delivery notices, builds customer-specific context and requests a model decision. Validated routine replies can be sent automatically; judgement calls and failures enter Needs attention.
+3. **Reconciliation:** uploaded CSV receipts go through local matching and allocation search. The frontend displays suggestions, scores and reasons. Matching never calls an LLM and never updates balances by itself.
+4. **Approval closes the loop:** a human-approved allocation records cash and any TDS, reduces balances and marks zero-balance invoices paid. Future agent context and reminder previews read that updated state. The dashboard refreshes through the API.
+
+The database stores one workspace document with nested customers, invoices, conversations, bank transactions, payment allocations and mailbox metadata. The mail and LLM boxes represent adapters, not separately deployed services. A model proposes a classification/response; Python enforces the allowed action and financial-data checks.
+
 
 Uvicorn serves the Python API. The frontend never contacts the database, mail server or model providers directly. Backend modules separate responsibilities within one process; they are not independent microservices. Node.js runs the frontend tooling and development launcher, not the backend business logic.
 
@@ -51,11 +104,11 @@ You can explore invoices, customers and reconciliation without email or model cr
 
 ## 2. Clone and locate the project
 
-Replace `YOUR_GITHUB_USERNAME/YOUR_REPOSITORY` with the actual published repository path. This is a placeholder, not a live repository URL.
+Clone the project repository:
 
 ```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
+git clone https://github.com/adevansh078/Sonic-AI.git
+cd Sonic-AI
 ```
 
 Run the following setup commands from the **application root**: the directory containing `package.json`, `package-lock.json`, `backend/`, `frontend/` and `data/`.
@@ -348,7 +401,7 @@ The application root is the portable project: keep `backend/`, `frontend/`, `scr
 
 Generated local folders are intentionally ignored: `backend/.venv/`, `backend/storage/`, `node_modules/`, `frontend/node_modules/`, `frontend/dist/`, `.npm-cache/`, `debug/`, `__pycache__/` and `.setup-check/`. They are not required in a clone. Never include `backend/.env` in a handoff. Keep `data/`: first-start database seeding depends on it.
 
-Before sharing, replace the clone URL placeholder above with your repository URL. Verify that the source, example configuration, data and lockfiles are committed; excluded local files are recreated during setup.
+Before sharing, verify that the source, example configuration, data and lockfiles are committed; excluded local files are recreated during setup.
 
 ## 11. API reference
 
